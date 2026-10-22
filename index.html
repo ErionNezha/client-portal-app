@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!-- Created by Erion Nezha — © 2026 All rights reserved -->
+<html lang="sq">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Erion Nezha — Portali Privat i Klientëve</title>
+<meta name="description" content="Portali vizual privat i klientëve të Erion Nezhës: shërbime, shembuj pune reale dhe kontakt i drejtpërdrejtë.">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  :root{
+    --bg:#070d1d; --bg2:#0b1428; --card:#0e1930; --card2:#101f3c;
+    --gold:#d9a92c; --gold2:#f0cd6a; --ink:#eef1f7; --mut:#98a4bd;
+    --line:rgba(217,169,44,.28);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:radial-gradient(1100px 520px at 50% -120px,#16264d 0%,var(--bg) 60%);
+       color:var(--ink);font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+       -webkit-font-smoothing:antialiased;padding-bottom:34px}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 18px}
+  /* ---------- hero ---------- */
+  header{text-align:center;padding:38px 0 8px}
+  .avatar{width:118px;height:118px;border-radius:50%;object-fit:cover;
+          border:3px solid var(--gold);box-shadow:0 0 0 6px rgba(217,169,44,.15),0 14px 34px rgba(0,0,0,.5)}
+  h1{font-size:31px;letter-spacing:.4px;margin-top:16px}
+  h1 .gold{color:var(--gold2)}
+  .role{color:var(--mut);margin-top:6px;font-size:15px;letter-spacing:1.6px;text-transform:uppercase}
+  .status{display:inline-block;margin-top:16px;padding:7px 16px;border:1px solid var(--line);
+          border-radius:999px;background:rgba(217,169,44,.08);color:var(--gold2);font-size:13.5px}
+  #greeting{margin-top:18px;font-size:17px;color:var(--ink)}
+  .langs{margin-top:16px;display:flex;gap:8px;justify-content:center}
+  .langs button{background:var(--card);color:var(--mut);border:1px solid var(--line);
+    border-radius:999px;padding:7px 18px;font-size:14px;cursor:pointer}
+  .langs button.on{color:#0a0f1e;background:linear-gradient(180deg,var(--gold2),var(--gold));border-color:var(--gold);font-weight:700}
+  /* ---------- sections ---------- */
+  section{margin-top:40px}
+  h2{font-size:21px;margin-bottom:6px}
+  h2 .bar{color:var(--gold)}
+  .sub{color:var(--mut);font-size:14.5px;margin-bottom:18px}
+  .grid{display:grid;gap:14px}
+  .svc{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  .card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid rgba(255,255,255,.06);
+        border-radius:16px;padding:18px}
+  .card h3{font-size:16.5px;margin-bottom:7px}
+  .card p{color:var(--mut);font-size:14px;line-height:1.55}
+  /* ---------- works ---------- */
+  .works{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+  .work{display:block;text-decoration:none;color:var(--ink);overflow:hidden;padding:0}
+  .work img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-bottom:1px solid rgba(255,255,255,.06)}
+  .work span{display:block;padding:12px 15px;font-size:14.5px;font-weight:600}
+  /* ---------- actions ---------- */
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+  .btn{flex:1 1 210px;text-align:center;text-decoration:none;font-weight:700;font-size:15.5px;
+       padding:15px 14px;border-radius:14px;color:#0a0f1e;
+       background:linear-gradient(180deg,var(--gold2),var(--gold));
+       box-shadow:0 8px 22px rgba(217,169,44,.25)}
+  .btn.ghost{background:var(--card);color:var(--gold2);border:1px solid var(--line);box-shadow:none}
+  .note{color:var(--mut);font-size:13.5px;margin-top:14px;text-align:center}
+  /* ---------- faq ---------- */
+  details{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:14px;
+          padding:14px 17px;margin-bottom:10px}
+  summary{cursor:pointer;font-weight:600;font-size:15px}
+  details p{color:var(--mut);font-size:14px;line-height:1.6;margin-top:8px}
+  footer{margin-top:48px;text-align:center;color:var(--mut);font-size:13px}
+  footer .rule{width:64px;height:2px;background:var(--gold);margin:0 auto 14px;border-radius:2px;opacity:.7}
+  @media (max-width:480px){ h1{font-size:26px} .avatar{width:100px;height:100px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <img class="avatar" src="img/profile.png" alt="Erion Nezha">
+    <h1>Erion <span class="gold">Nezha</span></h1>
+    <div class="role" data-i18n="role">Software Developer</div>
+    <div><span class="status" data-i18n="status">🔒 Portal privat i klientëve</span></div>
+    <p id="greeting"></p>
+    <div class="langs">
+      <button id="btn-sq" class="on" type="button">🇦🇱 Shqip</button>
+      <button id="btn-en" type="button">🇬🇧 English</button>
+    </div>
+  </header>
+
+  <section>
+    <h2><span class="bar">▎</span><span data-i18n="svc_h">Shërbimet</span></h2>
+    <p class="sub" data-i18n="svc_sub">Çfarë mund të ndërtoj për ty — nga ideja te produkti i përfunduar.</p>
+    <div class="grid svc">
+      <div class="card"><h3 data-i18n="s1t">🌐 Faqe interneti &amp; e-commerce</h3><p data-i18n="s1d">Faqe prezantuese, dyqan online, faqe rezervimesh apo platformë me porosi — dizajn premium, e shpejtë, e optimizuar për Google dhe për telefon.</p></div>
+      <div class="card"><h3 data-i18n="s2t">📱 Aplikacion Android</h3><p data-i18n="s2d">Nga ideja te publikimi në Google Play: dizajn, zhvillim, testime dhe dorëzim i plotë i aplikacionit tënd.</p></div>
+      <div class="card"><h3 data-i18n="s3t">🤖 Bot Telegram &amp; automatizim</h3><p data-i18n="s3d">Botë për biznesin tënd dhe automatizime që të kursejnë orë pune çdo javë.</p></div>
+      <div class="card"><h3 data-i18n="s4t">🎨 Dizajn grafik &amp; video</h3><p data-i18n="s4d">Logo dhe identitet vizual, grafika për rrjete sociale e dyqane aplikacionesh, editim videoje me titra të animuara.</p></div>
+      <div class="card"><h3 data-i18n="s5t">📣 Marketing dixhital</h3><p data-i18n="s5d">Strategji përmbajtjeje, menaxhim prezence online dhe fushata që sjellin klientë realë, jo thjesht shikime.</p></div>
+      <div class="card"><h3 data-i18n="s6t">✨ Tjetër</h3><p data-i18n="s6d">Ke një ide tjetër në mendje? Tregoje me formularin e projektit dhe e diskutojmë bashkë.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="bar">▎</span><span data-i18n="works_h">Shembuj pune reale</span></h2>
+    <p class="sub" data-i18n="works_sub">Projekte të përfunduara dhe live — prek për t'i parë vetë.</p>
+    <div class="grid works">
+      <a class="card work" href="https://lexolibra.netlify.app"><img src="img/lexolibra.jpg" alt="Lexo Libra" loading="lazy"><span data-i18n="w1">📚 Lexo Libra — biblioteka dixhitale shqipe</span></a>
+      <a class="card work" href="https://cmimradar.netlify.app"><img src="img/cmimradar.jpg" alt="ÇmimRadar" loading="lazy"><span data-i18n="w2">📉 ÇmimRadar — krahasuesi i çmimeve</span></a>
+      <a class="card work" href="https://marketradar-tirana.netlify.app"><img src="img/marketradar.jpg" alt="MarketRadar" loading="lazy"><span data-i18n="w3">🛒 MarketRadar — çmimet e supermarketeve</span></a>
+      <a class="card work" href="https://farmaciradar.netlify.app"><img src="img/farmaciradar.jpg" alt="FarmaciRadar" loading="lazy"><span data-i18n="w4">💊 FarmaciRadar — krahasuesi i farmacive</span></a>
+      <a class="card work" href="https://filma12hd.vercel.app"><img src="img/filmahd.jpg" alt="FilmaHD" loading="lazy"><span data-i18n="w5">🎬 FilmaHD — katalog filmash e serialesh</span></a>
+      <a class="card work" href="https://veltrix-visuals.netlify.app"><img src="img/veltrix.jpg" alt="VELTRIX" loading="lazy"><span data-i18n="w7">✨ VELTRIX — prezantim vizual kreativ</span></a>
+      <a class="card work" href="https://erionxx1.netlify.app"><img src="img/portfolio.jpg" alt="Portfolio" loading="lazy"><span data-i18n="w8">🌐 Portfolio e plotë e Erion Nezhës</span></a>
+      <a class="card work" href="https://dertlibot.netlify.app"><img src="img/dertli.jpg" alt="Dertli Bot" loading="lazy"><span data-i18n="w9">💬 Dertli Bot — asistenti AI shqip</span></a>
+      <a class="card work" href="https://radio-shqip-tv.netlify.app"><img src="img/radioshqip.jpg" alt="Radio Shqip" loading="lazy"><span data-i18n="w10">🎵 Radio Shqip — radiot shqiptare live</span></a>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="bar">▎</span><span data-i18n="act_h">Nis tani</span></h2>
+    <p class="sub" data-i18n="act_sub">Veprimet bëhen brenda bisedës private me botin — aty jetojnë të dhënat e projektit tënd.</p>
+    <div class="actions">
+      <a class="btn" href="https://t.me/ErionNezhaBot" data-i18n="a1">📝 Nis një projekt</a>
+      <a class="btn ghost" href="https://t.me/ErionNezhaBot" data-i18n="a2">🗓 Rezervo konsultë</a>
+      <a class="btn ghost" href="https://t.me/ErionNezhaBot" data-i18n="a3">💬 Fol me Erionin</a>
+    </div>
+    <p class="note" data-i18n="note">Të dhënat private të projektit tënd jetojnë brenda bisedës së botit.</p>
+  </section>
+
+  <section>
+    <h2><span class="bar">▎</span><span data-i18n="faq_h">Pyetje të shpeshta</span></h2>
+    <p class="sub" data-i18n="faq_sub">Përgjigje të shkurtra për pyetjet që bëhen më shpesh.</p>
+    <details><summary data-i18n="q1">Sa zgjat një projekt?</summary><p data-i18n="q1d">Varet nga madhësia dhe funksionet që kërkon projekti. Pasi plotëson brief-in, afati përcaktohet bashkë dhe fiksohet në marrëveshje para se të nisë puna.</p></details>
+    <details><summary data-i18n="q2">Si bëhet pagesa?</summary><p data-i18n="q2d">Pagesa bëhet me faza, sipas marrëveshjes: një parapagim për të nisur punën dhe pjesa tjetër sipas ecurisë, deri në dorëzimin final.</p></details>
+    <details><summary data-i18n="q3">Çfarë duhet të jap unë si klient?</summary><p data-i18n="q3d">Përgjigjet e brief-it dhe materialet e tua — logo, tekste, foto dhe akseset e nevojshme. Për gjithçka tjetër kujdesem unë.</p></details>
+    <details><summary data-i18n="q4">A ka mbështetje pas dorëzimit?</summary><p data-i18n="q4d">Po — pas dorëzimit mbështetja është e përfshirë për çdo problem që lind nga puna e dorëzuar. Nëse do qetësi afatgjatë, ka edhe paketa mirëmbajtjeje opsionale.</p></details>
+  </section>
+
+  <footer>
+    <div class="rule"></div>
+    <div data-i18n="foot">Krijuar nga Erion Nezha</div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var STR = {
+    sq: { greet:"Mirë se erdhe", greet_named:"Mirë se erdhe, {name}",
+      role:"Software Developer", status:"🔒 Portal privat i klientëve",
+      svc_h:"Shërbimet", svc_sub:"Çfarë mund të ndërtoj për ty — nga ideja te produkti i përfunduar.",
+      s1t:"🌐 Faqe interneti & e-commerce", s1d:"Faqe prezantuese, dyqan online, faqe rezervimesh apo platformë me porosi — dizajn premium, e shpejtë, e optimizuar për Google dhe për telefon.",
+      s2t:"📱 Aplikacion Android", s2d:"Nga ideja te publikimi në Google Play: dizajn, zhvillim, testime dhe dorëzim i plotë i aplikacionit tënd.",
+      s3t:"🤖 Bot Telegram & automatizim", s3d:"Botë për biznesin tënd dhe automatizime që të kursejnë orë pune çdo javë.",
+      s4t:"🎨 Dizajn grafik & video", s4d:"Logo dhe identitet vizual, grafika për rrjete sociale e dyqane aplikacionesh, editim videoje me titra të animuara.",
+      s5t:"📣 Marketing dixhital", s5d:"Strategji përmbajtjeje, menaxhim prezence online dhe fushata që sjellin klientë realë, jo thjesht shikime.",
+      s6t:"✨ Tjetër", s6d:"Ke një ide tjetër në mendje? Tregoje me formularin e projektit dhe e diskutojmë bashkë.",
+      works_h:"Shembuj pune reale", works_sub:"Projekte të përfunduara dhe live — prek për t'i parë vetë.",
+      w1:"📚 Lexo Libra — biblioteka dixhitale shqipe", w2:"📉 ÇmimRadar — krahasuesi i çmimeve",
+      w3:"🛒 MarketRadar — çmimet e supermarketeve", w4:"💊 FarmaciRadar — krahasuesi i farmacive",
+      w5:"🎬 FilmaHD — katalog filmash e serialesh",
+      w7:"✨ VELTRIX — prezantim vizual kreativ", w8:"🌐 Portfolio e plotë e Erion Nezhës",
+      w9:"💬 Dertli Bot — asistenti AI shqip", w10:"🎵 Radio Shqip — radiot shqiptare live",
+      act_h:"Nis tani", act_sub:"Veprimet bëhen brenda bisedës private me botin — aty jetojnë të dhënat e projektit tënd.",
+      a1:"📝 Nis një projekt", a2:"🗓 Rezervo konsultë", a3:"💬 Fol me Erionin",
+      note:"Të dhënat private të projektit tënd jetojnë brenda bisedës së botit.",
+      faq_h:"Pyetje të shpeshta", faq_sub:"Përgjigje të shkurtra për pyetjet që bëhen më shpesh.",
+      q1:"Sa zgjat një projekt?", q1d:"Varet nga madhësia dhe funksionet që kërkon projekti. Pasi plotëson brief-in, afati përcaktohet bashkë dhe fiksohet në marrëveshje para se të nisë puna.",
+      q2:"Si bëhet pagesa?", q2d:"Pagesa bëhet me faza, sipas marrëveshjes: një parapagim për të nisur punën dhe pjesa tjetër sipas ecurisë, deri në dorëzimin final.",
+      q3:"Çfarë duhet të jap unë si klient?", q3d:"Përgjigjet e brief-it dhe materialet e tua — logo, tekste, foto dhe akseset e nevojshme. Për gjithçka tjetër kujdesem unë.",
+      q4:"A ka mbështetje pas dorëzimit?", q4d:"Po — pas dorëzimit mbështetja është e përfshirë për çdo problem që lind nga puna e dorëzuar. Nëse do qetësi afatgjatë, ka edhe paketa mirëmbajtjeje opsionale.",
+      foot:"Krijuar nga Erion Nezha" },
+    en: { greet:"Welcome", greet_named:"Welcome, {name}",
+      role:"Software Developer", status:"🔒 Private client portal",
+      svc_h:"Services", svc_sub:"What I can build for you — from the idea to the finished product.",
+      s1t:"🌐 Website & e-commerce", s1d:"Showcase sites, online shops, booking pages or a custom platform — premium design, fast, optimized for Google and for phones.",
+      s2t:"📱 Android app", s2d:"From the idea to publishing on Google Play: design, development, testing and complete delivery of your app.",
+      s3t:"🤖 Telegram bot & automation", s3d:"Bots for your business and automations that save you hours of work every week.",
+      s4t:"🎨 Graphic design & video", s4d:"Logo and visual identity, graphics for social media and app stores, video editing with animated captions.",
+      s5t:"📣 Digital marketing", s5d:"Content strategy, online presence management and campaigns that bring real clients, not just views.",
+      s6t:"✨ Something else", s6d:"Have another idea in mind? Tell me through the project form and we'll discuss it together.",
+      works_h:"Real work samples", works_sub:"Finished, live projects — tap to see them yourself.",
+      w1:"📚 Lexo Libra — the Albanian digital library", w2:"📉 ÇmimRadar — the price comparison tool",
+      w3:"🛒 MarketRadar — supermarket prices in Tirana", w4:"💊 FarmaciRadar — the online pharmacy comparison",
+      w5:"🎬 FilmaHD — movie and series catalogue",
+      w7:"✨ VELTRIX — creative visual showcase", w8:"🌐 Erion Nezha's full portfolio",
+      w9:"💬 Dertli Bot — the Albanian AI assistant", w10:"🎵 Radio Shqip — Albanian radio stations live",
+      act_h:"Start now", act_sub:"Actions happen inside the private chat with the bot — that's where your project data lives.",
+      a1:"📝 Start a project", a2:"🗓 Book a consultation", a3:"💬 Talk to Erion",
+      note:"Your private project data lives inside the bot conversation.",
+      faq_h:"Frequently asked questions", faq_sub:"Short answers to the questions asked most often.",
+      q1:"How long does a project take?", q1d:"It depends on the project's size and the features you need. Once you complete the brief, the deadline is agreed together and fixed in the agreement before work starts.",
+      q2:"How does payment work?", q2d:"Payment is made in stages, as agreed: an advance to start the work, and the rest along the way, up to the final delivery.",
+      q3:"What do I need to provide as a client?", q3d:"The brief answers and your materials — logo, texts, photos and the necessary access. I take care of everything else.",
+      q4:"Is there support after delivery?", q4d:"Yes — after delivery, support is included for any issue arising from the delivered work. If you'd like long-term peace of mind, there are optional maintenance packages too.",
+      foot:"Created by Erion Nezha" }
+  };
+  var lang = "sq", userName = "";
+  try {
+    var wa = window.Telegram && window.Telegram.WebApp;
+    if (wa) {
+      wa.ready(); wa.expand();
+      var u = wa.initDataUnsafe && wa.initDataUnsafe.user;
+      if (u && u.first_name) userName = u.first_name;
+      if (u && u.language_code && u.language_code.indexOf("en") === 0) lang = "en";
+    }
+  } catch (e) { /* jashtë Telegramit: faqja punon njësoj */ }
+  function apply() {
+    var d = STR[lang];
+    document.documentElement.lang = lang;
+    var els = document.querySelectorAll("[data-i18n]");
+    for (var i = 0; i < els.length; i++) {
+      var k = els[i].getAttribute("data-i18n");
+      if (d[k]) els[i].textContent = d[k];
+    }
+    var g = document.getElementById("greeting");
+    g.textContent = userName ? d.greet_named.replace("{name}", userName) + " ✨" : d.greet + " ✨";
+    document.getElementById("btn-sq").className = lang === "sq" ? "on" : "";
+    document.getElementById("btn-en").className = lang === "en" ? "on" : "";
+  }
+  document.getElementById("btn-sq").addEventListener("click", function(){ lang = "sq"; apply(); });
+  document.getElementById("btn-en").addEventListener("click", function(){ lang = "en"; apply(); });
+  apply();
+})();
+</script>
+</body>
+</html>
