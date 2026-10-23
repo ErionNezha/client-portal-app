@@ -116,9 +116,9 @@
     <h2><span class="bar">▎</span><span data-i18n="act_h">Nis tani</span></h2>
     <p class="sub" data-i18n="act_sub">Veprimet bëhen brenda bisedës private me botin — aty jetojnë të dhënat e projektit tënd.</p>
     <div class="actions">
-      <a class="btn" href="https://t.me/ErionNezhaBot" data-i18n="a1">📝 Nis një projekt</a>
-      <a class="btn ghost" href="https://t.me/ErionNezhaBot" data-i18n="a2">🗓 Rezervo konsultë</a>
-      <a class="btn ghost" href="https://t.me/ErionNezhaBot" data-i18n="a3">💬 Fol me Erionin</a>
+      <a class="btn" href="https://t.me/ErionNezhaBot?start=brief" data-i18n="a1">📝 Nis një projekt</a>
+      <a class="btn ghost" href="https://t.me/ErionNezhaBot?start=book" data-i18n="a2">🗓 Rezervo konsultë</a>
+      <a class="btn ghost" href="https://t.me/ErionNezhaBot?start=talk" data-i18n="a3">💬 Fol me Erionin</a>
     </div>
     <p class="note" data-i18n="note">Të dhënat private të projektit tënd jetojnë brenda bisedës së botit.</p>
   </section>
@@ -215,6 +215,23 @@
   }
   document.getElementById("btn-sq").addEventListener("click", function(){ lang = "sq"; apply(); });
   document.getElementById("btn-en").addEventListener("click", function(){ lang = "en"; apply(); });
+  /* Navigimi brenda Telegram WebApp: <a href> i thjeshtë NUK respektohet
+     nga webview-ja e Telegramit — lidhjet t.me hapen me openTelegramLink
+     dhe lidhjet e jashtme https me openLink. Pa Telegram WebApp (browser
+     i zakonshëm) mbetet sjellja default e href-it. */
+  function tgwa(){ try { return window.Telegram && window.Telegram.WebApp; } catch (e) { return null; } }
+  document.addEventListener("click", function(ev){
+    var a = (ev.target && ev.target.closest) ? ev.target.closest("a[href]") : null;
+    if (!a) return;
+    var href = a.getAttribute("href") || "";
+    var wa = tgwa();
+    if (!wa) return;
+    if (href.indexOf("https://t.me/") === 0 && wa.openTelegramLink) {
+      ev.preventDefault(); wa.openTelegramLink(href);
+    } else if (href.indexOf("https://") === 0 && wa.openLink) {
+      ev.preventDefault(); wa.openLink(href);
+    }
+  });
   apply();
 })();
 </script>
